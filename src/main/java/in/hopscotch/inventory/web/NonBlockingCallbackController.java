@@ -29,6 +29,9 @@ public class NonBlockingCallbackController {
 	@Autowired
 	ActorRef supervisor;
 	
+	@Autowired
+	ActorSystem system;
+	
 	@RequestMapping("/processnonblocking")
 	public DeferredResult<String> getResult() {
 		DeferredResult<String> result = new DeferredResult<>();
@@ -41,10 +44,10 @@ public class NonBlockingCallbackController {
 	@RequestMapping("/processAkkaNonblocking")
 	public DeferredResult<String> testAkka() {
 		DeferredResult<String> result = new DeferredResult<String>();
-		ActorSystem system = contextProvider.getApplicationContext().getBean(ActorSystem.class);
+		//ActorSystem system = contextProvider.getApplicationContext().getBean(ActorSystem.class);
 		
-		final LoggingAdapter log = Logging.getLogger(system, "Application");
-		log.info("Starting Up");
+		//final LoggingAdapter log = Logging.getLogger(system, "Application");
+		//log.info("Starting Up");
 		
 		//An instance of the Supervisor actor is created with the
 		// SpringActorProducer and the custom PriorityMailbox mailbox

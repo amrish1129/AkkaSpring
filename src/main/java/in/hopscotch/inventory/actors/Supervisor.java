@@ -33,7 +33,7 @@ public class Supervisor extends UntypedActor {
 	private final LoggingAdapter log = Logging
 	        .getLogger(getContext().system(), "Supervisor");
 	
-	//@Autowired
+	@Autowired
     private SpringExtension springExtension;
 	
 	private Router router;
@@ -83,6 +83,7 @@ public class Supervisor extends UntypedActor {
 		} else if (message instanceof Response) {
 			log.info("Got response from:" + getSender());
 		} else if (message instanceof AkkaTask) {
+			log.info(getSender().toString());
 			router.route(message, getSender());
 		} 
 		else {

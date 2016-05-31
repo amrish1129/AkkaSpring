@@ -38,8 +38,8 @@ public class Main {
 			ApplicationContext context = SpringApplication.run(Main.class, args);
 			ActorSystem system = context.getBean(ActorSystem.class);
 			
-			final LoggingAdapter log = Logging.getLogger(system, "Application");
-			log.info("Starting Up");
+			final LoggingAdapter log = Logging.getLogger(system, "Application------");
+			log.info("--- Starting Up-----");
 			
 			//An instance of the Supervisor actor is created with the
 			// SpringActorProducer and the custom PriorityMailbox mailbox

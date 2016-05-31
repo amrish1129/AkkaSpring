@@ -19,7 +19,7 @@ import in.hopscotch.inventory.service.TaskDAO;
  *
  */
 @Component
-//@Scope("prototype")
+@Scope("prototype")
 public class TaskActor extends UntypedActor {
 	private final LoggingAdapter log = Logging.getLogger(getContext().system(), "TaskProcessor");
 
@@ -36,6 +36,7 @@ public class TaskActor extends UntypedActor {
 			getSender().tell(new Response(), getSelf());
 		} else if (message instanceof AkkaTask) {
 			log.info("Inside TaskActor:AKKA TASK");
+			log.info(getSender().toString());
 			//System.out.println(getSender());
 			getSender().tell(new AkkaResult(), getSelf());
 		}

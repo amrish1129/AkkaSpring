@@ -15,7 +15,8 @@ import in.hopscotch.inventory.beans.AkkaTask;
 //@Scope("prototype")
 public class DeferredActor extends UntypedActor {
 	private final LoggingAdapter log = Logging.getLogger(getContext().system(), "DeferredActor");
-
+	
+	
 	private ActorRef supervisor;
 	private DeferredResult<String> deferredResult;
 	
@@ -47,8 +48,10 @@ public class DeferredActor extends UntypedActor {
 		// TODO Auto-generated method stub
 		if(message instanceof AkkaTask) {
 			log.info("Task Recevied");
+			log.info(getSender().toString());
 			supervisor.tell(message, getSelf());
 		} else if (message instanceof AkkaResult) {
+			log.info(getSender().toString());
 			deferredResult.setResult("YoHoooooo!!!!");
 		}
 	}
